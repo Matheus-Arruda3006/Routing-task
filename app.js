@@ -24,9 +24,14 @@ app.get('/joke/:tag/:number', (req, resp) => {
     }  else{
         result = 'No jokes for this tag';
     }
-    
+
     resp.send(result);
 })
+
+app.get('*', (req,resp) => {
+    resp.send('<h1>404 - It is not funny!</h1>');
+})
+
 
 app.listen(3000, () => {
     console.log('Listening 3000...');
